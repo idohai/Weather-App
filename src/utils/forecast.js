@@ -11,8 +11,8 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             // const location = `${response.body.location.name}, ${response.body.location.country}`
             const data = body.current
-            const {weather_descriptions, temperature, feelslike} = data
-            callback(undefined, `${weather_descriptions[0]}. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out.`)
+            const {weather_descriptions, temperature, feelslike, observation_time, humidity} = data
+            callback(undefined, {forecast: `${weather_descriptions[0]}. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out.`, humidity: `The Humidity is ${humidity}%`, observation_time: `Observation time: ${observation_time} local time`})
         }
     })
 }
